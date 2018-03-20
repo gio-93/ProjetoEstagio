@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+}
+
+div.grid_secundario{
+    margin-top: 55px;
+}
+
+.form{    
+    border-radius:4px; 
+    width:55px;
+    height: 25px;
+    margin-top: 2px;
+    margin-left: 100%; 
+    text-align: center;
+}
+
+.alarm_form{
+    border-radius:4px; 
+    width:50px;
+    height: 25px;
+    margin-top: 2px;
+    margin-left: center; 
+    text-align: center;
+}
+
+.gaso_form{
+    border-radius:4px; 
+    width:55px;
+    height: 25px;
+    margin-top: 2px;
+    margin-right: 100%; 
+    text-align: center;
+}
+
+.tabela_gasometria>tbody>tr>td{
+    width: 100px; 
+}
+
+/*Estilos do Alarmes*/
+.tg  {
+    border-spacing:1;border-width:0px;border-style:solid;}
+
+.tg td{
+    font-size:1em;margin-left:5px;font-weight:bold; border-width:0px;overflow:hidden;word-break:normal;
+}
+.tg th{
+    font-size:1em;margin-left:5px; font-weight:bold;border-width:0px;overflow:hidden; word-break:normal;
+}
+
+.tg-3j8g{
+    padding:5px; font-weight:bold;font-size:1em;text-align:left;vertical-align:center;
+}
+
+.tg .tg-gja9{
+    padding:10px;font-weight:bold; font-size:20px;color:#ff0000;text-align:center;vertical-align:top
+}
+.tg .tg-ir4y{
+    font-weight:bold; font-size:1em;text-align:center; vertical-align:top
+}
+.tg .tg-pi53{font-weight:bold;font-size:1em;text-align:center} 
+
+.button_alarm {
+    color:black; background:#E5E5E5; font-size:15px;  border-radius: 15%;
+}
+.button_alarm:hover:enabled {
+    font-size:1em;  font-weight:bold;
+}
+.button_alarm:disabled {
+    font-size:1em;  background:#A0A0A0;
+}
+

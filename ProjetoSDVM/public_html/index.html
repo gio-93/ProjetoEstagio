@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SDVM - Simulador Didático de Ventilação Mecânica</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/> 
+        <link rel="stylesheet" href="style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid"> 
+
+            <!-- Barra de Navegador-->
+            <nav class="navbar navbar-fixed-top" style="height: 20px;background-color: #8080ff">
+
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" style="color: black">SDVM</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="btn"><span class="glyphicon glyphicon-question-sign" style="width: 50px;font-size: 15px;color: black"></span></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="btn"><span class="glyphicon glyphicon-music" style="width: 50px;font-size: 15px;color: black"></span></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="btn"><span class="glyphicon glyphicon-play" style="width: 50px;font-size: 15px;color: black"></span></a></li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <!--Grid Primario-->
+            <div class="row" id="grid_primario"> 
+
+                <!--Grid secundario-->
+                <div class="row grid_secundario">
+                    <div class="col-sm-6" style="text-align: left">
+                        <!--Dados_Paciente (Primeira Coluna do Grid Superior)-->
+                        <div class="col-sm-4" style="text-align: left">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2"><strong>Dados do Paciente</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:left">Sexo</td>
+                                        <td>
+                                            <select id="sexo" class="form" name="sexo">
+                                                <option selected="true">M</option>
+                                                <option>F</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Idade
+                                        </td>
+                                        <td>
+                                            <input id="idade" type="number" name="idade" class="form" min="0" step="1" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Altura(m)
+                                        </td>
+                                        <td>
+                                            <input id="altura" type="number" name="altura" class="form" min="0" step="1" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Peso(Kg)
+                                        </td>
+                                        <td>
+                                            <input id="peso" type="number" name="peso" class="form" min="0" step="1" value="0">
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!--Fisiologia Pulmonar(Segunda Coluna do Grid Superior)-->
+                        <div class="col-sm-4" style="text-align: left">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2"><strong>Fisiologia Pulmonar</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Rva(cmH&#8322;O/l/s)
+                                        </td>
+                                        <td>
+                                            <input id="rva" type="number" name="rva" class="form" min="2" max="60" step="1" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Cst(ml/cmH&#8322;O)
+                                        </td>
+                                        <td>
+                                            <input id="cst" type="number" name="cst" class="form" min="5" max="200" step="1" value="0">
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!--Esforço Muscular(Terceira Coluna do Grid Superior)-->
+                        <div class="col-sm-4" style="text-align: left">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2"><strong>Esforço Muscula</strong>r</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Pmus(cmH&#8322;0)
+                                        </td>
+                                        <td>
+                                            <input id="Pmus" type="number" name="Pmus" class="form" min="0" max="50" step="1" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            f(rpm)
+                                        </td>
+                                        <td>
+                                            <input id="f_rpm" type="number" name="f_rpm" class="form" min="1" max="80" step="1" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                            Duração(s)
+                                        </td>
+                                        <td>
+                                            <input id="duracao" type="number" name="duracao" class="form" min="0.0" max="6.0" step="1" value="0.1">
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div> 
+
+                        <!--Grid Inferior-->
+                        <div class="row">
+                            <!--Grafico(Coluna unica do Grid Inferior)-->
+                            <div class="col-sm-12" style="text-align: center;background-color: #999">Grafico</div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6" style="text-align: right">
+
+                        <!--Alarmes(Quarta Coluna do Grid Superior)-->
+                        <div class="col-sm-6" style="text-align: right">
+                            <table class="tg">
+                                <tr>
+                                    <th class="tg-3j8g"></th>
+                                    <th class="tg-3j8g">Min</th>
+                                    <th class="tg-3j8g">Max</th>
+                                    <th class="tg-3j8g"></th>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="VC" type="checkbox"  value="VC" onchange="alarme('VC')" checked  >VC</td>
+                                    <td class="tg-3j8g"><input id="minVC" type="number" class="alarm_form" onchange="updateValue('minVC')" min="-10" max="1000" step="1" value="0"></td>
+                                    <td class="tg-3j8g"><input id="maxVC" type="number" class="alarm_form" onchange="updateValue('maxVC')" min="100" max="3000" step="50" value="2000"></td>
+                                    <td class="tg-3j8g"><button id="btnVC" class="button_alarm" onclick="desarma('VC')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="VolMin" type="checkbox"  value="VC" onchange="alarme('VolMin')"  checked >Vol/min</td>
+                                    <td class="tg-3j8g"><input id="minVolMin" type="number" class="alarm_form" onchange="updateValue('minVolMin')" min="0" max="50" step="0.1" value="0"></td>
+                                    <td class="tg-3j8g"><input id="maxVolMin" type="number" class="alarm_form" onchange="updateValue('maxVolMin')" min="0" max="50" step="0.2" value="30"></td>
+                                    <td class="tg-3j8g"><button id="btnVolMin" class="button_alarm" onclick="desarma('VolMin')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="Flux" type="checkbox"  value="Flux" onchange="alarme('Flux')" checked  >Fluxo</td>
+                                    <td class="tg-3j8g"><input id="minFlux" type="number" class="alarm_form" onchange="updateValue('minFlux')" min="-10" max="1000" step="1" value="0"></td>
+                                    <td class="tg-3j8g"><input id="maxFlux" type="number" class="alarm_form" onchange="updateValue('maxFlux')" min="0" max="150" step="1" value="60"></td>
+                                    <td class="tg-3j8g"><button id="btnFlux" class="button_alarm" onclick="desarma('Flux')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="Paw" type="checkbox" value="Paw" onchange="alarme('Paw')"  checked>Paw </td>
+                                    <td class="tg-3j8g"><input id="minPaw" type="number" class="alarm_form" onchange="updateValue('minPaw')" min="-10" max="20" step="1" value="-5"></td>
+                                    <td class="tg-3j8g"><input id="maxPaw" type="number" class="alarm_form" onchange="updateValue('maxPaw')" min="0" max="100" step="1" value="40"></td>
+                                    <td class="tg-3j8g"><button id="btnPaw" class="button_alarm" onclick="desarma('Paw')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="Pplato" type="checkbox" value="Pplato" onchange="alarme('Pplato')"  checked>Pplat&ocirc; </td>
+                                    <td class="tg-3j8g"><input id="minPplato" type="number" class="alarm_form" onchange="updateValue('minPplato')" min="-10" max="15" step="1" value="-5"></td>
+                                    <td class="tg-3j8g"><input id="maxPplato" type="number" class="alarm_form" onchange="updateValue('maxPplato')" min="0" max="100" step="0.5" value="32"></td>
+                                    <td class="tg-3j8g"><button id="btnPplato" class="button_alarm" onclick="desarma('Pplato')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="tg-3j8g"><input id="PEEP2" type="checkbox" value="PEEP" onchange="alarme('PEEP2')"  checked>PEEP </th>
+                                    <td class="tg-3j8g"><input id="minPEEP2" type="number" class="alarm_form" onchange="updateValue('minPEEP')" min="-10" max="20" step="1" value="-5"></td>
+                                    <td class="tg-3j8g"><input id="maxPEEP2" type="number" class="alarm_form" onchange="updateValue('maxPEEP')" min="0" max="100" step="1" value="50"></td>
+                                    <th class="tg-3j8g"><button id="btnPEEP2" class="button_alarm" onclick="desarma('PEEP2')" >OK</button></th>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="Freq" type="checkbox" value="Freq" onchange="alarme('Freq')" checked>Freq.</td>
+                                    <td class="tg-3j8g"><input id="minFreq" type="number" class="alarm_form" onchange="updateValue('minFreq')" min="0" max="10" step="1" value="0"></td>
+                                    <td class="tg-3j8g"><input id="maxFreq" type="number" class="alarm_form" onchange="updateValue('maxFreq')" min="0" max="100" step="1" value="25"></td>
+                                    <td class="tg-3j8g"><button id="btnFreq" class="button_alarm" onclick="desarma('Freq')" >OK</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-3j8g"><input id="Apneia" type="checkbox" value="Apneia" onchange="alarme('Apneia')" checked>Apneia</td>
+                                    <td class="tg-3j8g"><input id="minApneia" type="number" class="alarm_form" onchange="updateValue('minApneia')" min="0" max="10" step="0.1" value="2"></td>
+                                    <td class="tg-3j8g"><input id="maxApneia" type="number" class="alarm_form" onchange="updateValue('maxApneia')" min="0" max="60" step="1" value="25"></td>
+                                    <td class="tg-3j8g"><button id="btnApneia" class="button_alarm" onclick="desarma('Apneia')" >OK</button></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!--Controles(Quinta Coluna do Grid Superior)-->
+                        <div class="col-sm-6" style="text-align: right">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2"><strong>A/C - VCV</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:left">Volume(ml)</td>
+                                        <td><input id="VCVVolume" type="number" class="form" onchange="updateValue1('Volume')" min="0" max="2000" step="10" value="200"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">Freq.(rpm)</td>
+                                        <td><input id="VCVFrequencia" type="number" class="form" onchange="updateValue1('Frequencia')"min="1" max="60" step="1" value="10"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">Pausa Insp.(s)</td>
+                                        <td><input id="VCVpausaInsp" type="number" class="form" onchange="updateValue4()" min="0" max="2" step="0.1" value="0"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left"> Fluxo(L/min)</td>
+                                        <td><input id="VCVFluxo" type="number" class="form" onchange="updateValue1('Fluxo')" min="0" max="80" step="1" value="30"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <hr>
+
+                            <table>
+                                <tr>
+                                    <td style="text-align:left">FIO2(%)</td>
+                                    <td><input id="FIO2" type="number" class="form" onchange="updateValue('FIO2')" min="21" max="100" step="1" value="21"></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left">PEEP(cmH&#8322;O)</td>
+                                    <tD><input id="PEEP" type="number" class="form" onchange="updateValue('PEEP')" min="0" max="30" step="0.1" value="5"></td>
+                                </tr>
+                            </table>
+
+                            <hr/>
+
+                            <table>
+                                <tr>
+                                    <th colspan="2"><strong>Sensibilidade</strong></th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left"><input type="radio" id='radioPmus' name="sens" checked  onchange="sens('Pmus')"> Press&atilde;o (cmH&#8322;O)</td>
+                                    <td><input id="sensPmus" type="number" name="sensPressao" class="form" onchange="updateValue3('sensPmus')" min="-10" max="-0.1" step="0.1" value="-2"></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left"><input type="radio" id='radioFlux' name="sens"  onchange="sens('Flux')"> Fluxo (l/min)</td>
+                                    <td><input id="sensFlux" type="number" name="sensFluxo" class="form" onchange="updateValue3('sensFlux')" min="0" max="10" step="0.1" value="2" disabled></td>
+                                </tr>
+                            </table>
+
+                        </div> 
+
+                        <!--Grid Inferior-->
+                        <div class="row">
+                            <!--Unica Coluna do Grid Inferior-->
+                            <div class="col-sm-12" style="text-align: right">
+
+                                <!--Monitores(Primeira Coluna do Grid Inferior)-->
+                                <div class="col-sm-4" style="text-align: center">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td colspan="2"><strong>Monitores</strong></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align:left">T.Inp.(s)</td>
+                                                <td><input id="showtInsp" type="number" class="form" value="000.0"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">T.Exp.(s)</td>
+                                                <td><input id="showtExp" type="number" class="form" value="000.0"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">P.Pico(cmH&#8322;O)</td>
+                                                <td><input id="showPpico" type="number" class="form" value="000.0"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">VCe(ml)</td>
+                                                <td><input id="showVCe" type="number" class="form" step="1" value="000.0"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">I:E &nbsp;</td>
+                                                <td><input id="showIE" type="number" class="form" step="1" value="000.0"></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>  
+                                </div>
+
+                                <!--Gasometria(Segunda Coluna do Grid Inferior)-->
+                                <div class="col-sm-8" style="text-align: center">
+                                    <table class="tabela_gasometria">
+                                        <thead>
+                                            <tr>
+                                                <td colspan="2"><strong>Gasometria</strong></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align:left">pH</td>
+                                                <td><input id="showtInsp" type="number" class="gaso_form" value="0"></td>
+                                                <td style="text-align:left">PAO&#8322</td>
+                                                <td><input id="showtInsp" type="number" class="gaso_form" value="0"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">PaCO&#8322</td>
+                                                <td><input id="showtExp" type="number" class="gaso_form" value="0"></td>
+                                                <td style="text-align:left">PaO&#8322</td>
+                                                <td><input id="showtExp" type="number" class="gaso_form" value="0"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">HCO&#8323-</td>
+                                                <td><input id="showPpico" type="number" class="gaso_form" value="0"></td>
+                                                <td style="text-align:left">D(A - a)O&#8322</td>
+                                                <td><input id="showtExp" type="number" class="gaso_form" value="0"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left">BE</td>
+                                                <td><input id="showVCe" type="number" class="gaso_form" step="1" value="0"></td>
+                                                <td style="text-align:left">SaO&#8322</td>
+                                                <td><input id="showtExp" type="number" class="gaso_form" value="0"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>  
+                                </div> 
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div> 
+
+        </div>
+    </body>
+</html>
